@@ -15,9 +15,9 @@
 #include <stdio.h>
 #include <cstddef>
 #include <iostream>
-#include <chrono>       /* std::chrono::seconds, std::chrono::milliseconds */
-#include <stdlib.h>     /* srand, rand */
-
+#include <chrono>   /* std::chrono::seconds, std::chrono::milliseconds */
+#include <stdlib.h> /* srand, rand */
+#include <cassert>      /* assert */
 
 #define TEST_RANDOM_SEED 1234567
 
@@ -25,7 +25,7 @@ void insertion_sort(int arr[], size_t size);
 void testcase_1(void);
 void testcase_2(void);
 
-int main(int argc, char* *argv)
+int main(int argc, char **argv)
 {
     double t_test_1, t_test_2;
     t_test_1 = t_test_2 = 0.0;
@@ -42,13 +42,14 @@ int main(int argc, char* *argv)
     t_diff_temp = t_test2_end - t_test1_end;
     t_test_2 = t_diff_temp.count();
 
-    std::cout<<"Test 1 finished in "<<t_test_1<<" seconds"<<std::endl;
-    std::cout<<"Test 2 finished in "<<t_test_2<<" seconds"<<std::endl;
+    std::cout << "Test 1 finished in " << t_test_1 << " seconds" << std::endl;
+    std::cout << "Test 2 finished in " << t_test_2 << " seconds" << std::endl;
 }
 
 void insertion_sort(int *arr, size_t size)
 {
-    if (arr == NULL)return;
+    if (arr == NULL)
+        return;
 
     for (size_t i = 1; i < size; ++i)
     {
@@ -57,11 +58,11 @@ void insertion_sort(int *arr, size_t size)
 
         while (pos >= 0 && arr[pos] > key)
         {
-            arr[pos+1] = arr[pos];
+            arr[pos + 1] = arr[pos];
             pos = pos - 1;
         }
 
-        arr[pos+1] = key;
+        arr[pos + 1] = key;
     }
 }
 
@@ -78,6 +79,12 @@ void testcase_1(void)
     }
 
     insertion_sort(arr, 1000);
+
+    for (size_t i = 1; i < 1000; ++i)
+    {
+        assert(arr[i] >= arr[i - 1]);
+    }
+    free(arr);
 }
 
 void testcase_2(void)
@@ -93,7 +100,11 @@ void testcase_2(void)
     }
 
     insertion_sort(arr, 10000);
+
+    for (size_t i = 1; i < 1000; ++i)
+    {
+        assert(arr[i] >= arr[i - 1]);
+    }
+
+    free(arr);
 }
-
-
-
