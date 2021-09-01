@@ -105,6 +105,9 @@ void merge(int *arr, size_t left, size_t mid, size_t right)
         ++replace_pos;
         ++right_counter;
     }
+
+    free(left_arr);
+    free(right_arr);
 }
 
 void testcase_1(void)
