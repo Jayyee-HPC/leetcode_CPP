@@ -6,7 +6,7 @@
 /** Queue
  * Queue is a linear data structure which follows a particular order in which the operations are performed.
  * The order is FIFO (First In First Out).
- */
+ **/
 
 //g++ -std=c++11 -o prog queue.cpp
 
