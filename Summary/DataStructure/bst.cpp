@@ -3,7 +3,7 @@
  */
 /* Author J.Y. */
 
-/** Hash table
+/** Binary Search Tree TODO
  * A Hash Table in C/C++ (Associative array) is a data structure that maps keys to values. 
  * This uses a hash function to compute indexes for a key.
  * C++ std::unordered_map()
